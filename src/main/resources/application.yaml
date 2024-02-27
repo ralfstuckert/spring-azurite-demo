@@ -1,0 +1,7 @@
+
+demo:
+  storage:
+    blob:
+      container: testcontainer
+    table:
+      tableName: testtable

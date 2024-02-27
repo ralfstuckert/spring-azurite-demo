@@ -1,0 +1,17 @@
+
+demo:
+  storage:
+    table:
+      endpoint: https://yourstorageaccount.table.core.windows.net/
+
+spring:
+  cloud:
+    azure:
+      storage:
+        blob:
+          account-name: yourstorageaccount
+          endpoint: https://yourstorageaccount.blob.core.windows.net/
+        queue:
+          account-name: yourstorageaccount
+          endpoint: https://yourstorageaccount.queue.core.windows.net/
+          queue-name: testqueue

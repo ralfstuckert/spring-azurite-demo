@@ -1,0 +1,22 @@
+
+demo:
+  storage:
+    table:
+      endpoint: http://127.0.0.1:10002/devstoreaccount1
+
+spring:
+  cloud:
+    azure:
+      storage:
+        blob:
+          account-name: devstoreaccount1
+          endpoint: http://127.0.0.1:10000/devstoreaccount1
+          account-key: "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="
+          # this is a public documented key for testing purposes with azurite, see https://learn.microsoft.com/de-de/azure/storage/common/storage-use-azurite?tabs=visual-studio%2Cblob-storage#connect-to-azurite-with-sdks-and-tools
+        queue:
+          account-name: devstoreaccount1
+          endpoint: http://127.0.0.1:10001/devstoreaccount1
+          account-key: "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw=="
+          # this is a public documented key for testing purposes with azurite, see https://learn.microsoft.com/de-de/azure/storage/common/storage-use-azurite?tabs=visual-studio%2Cblob-storage#connect-to-azurite-with-sdks-and-tools
+          queue-name: testqueue
+
