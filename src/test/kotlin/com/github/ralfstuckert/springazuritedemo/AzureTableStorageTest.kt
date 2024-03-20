@@ -1,5 +1,6 @@
 package com.github.ralfstuckert.springazuritedemo
 
+import com.azure.data.tables.TableServiceClientBuilder
 import com.azure.data.tables.models.TableEntity
 import com.azure.data.tables.models.TableServiceException
 import io.kotest.matchers.collections.shouldContainAll
@@ -11,7 +12,9 @@ import org.junit.jupiter.api.assertThrows
 class AzureTableStorageTest : AzuriteTestcontainer() {
 
     val tableName = "test"
-    val tableClient = AzureTableConfiguration().azuriteTableClient(tableUrl, tableName)
+    val tableClient = with (TableServiceClientBuilder().connectionString(tableConnectionString).buildClient()) {
+        createTableIfNotExists(tableName) ?: getTableClient(tableName)
+    }
     val tableStorage = AzureTableStorage(tableClient)
     val testPartition = "testPartition"
 

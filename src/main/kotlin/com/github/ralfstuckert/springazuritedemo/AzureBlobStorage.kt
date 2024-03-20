@@ -10,8 +10,7 @@ import java.io.ByteArrayOutputStream
 
 
 @Service
-class AzureBlobStorage(
-    val blobServiceClient: BlobServiceClient,
+class AzureBlobStorage(val blobServiceClient: BlobServiceClient,
     @Value("\${demo.storage.blob.container}") val containerName: String
 ) {
 
@@ -30,14 +29,11 @@ class AzureBlobStorage(
     fun listBlobNames() =
         blobContainerClient.listBlobs().map { it.name }
 
-    fun downloadBlob(blobName: String) =
-        ByteArrayOutputStream().use {
-            getBlobClient(blobName).downloadStream(it)
-            it.toByteArray()
-        }
+    fun downloadBlob(blobName: String): ByteArray =
+            getBlobClient(blobName).downloadContent().toBytes()
 
     fun updateBlob(blobName: String, byteArray: ByteArray) =
-        getBlobClient(blobName).upload(BinaryData.fromBytes(byteArray))
+        getBlobClient(blobName).upload(BinaryData.fromBytes(byteArray), true)
 
     fun deleteBlob(blobName: String) =
         getBlobClient(blobName).delete()

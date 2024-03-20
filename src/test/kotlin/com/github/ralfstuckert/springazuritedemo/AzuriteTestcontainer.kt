@@ -19,13 +19,13 @@ abstract class AzuriteTestcontainer() {
         val accountName = "devstoreaccount1"
 
         val blobUrl by lazy {
-            "http://127.0.0.1:${container.getMappedPort(10000)}"
+            "http://${container.host}:${container.getMappedPort(10000)}"
         }
         val queueUrl by lazy {
-            "http://127.0.0.1:${container.getMappedPort(10001)}"
+            "http://${container.host}:${container.getMappedPort(10001)}"
         }
         val tableUrl by lazy {
-            "http://127.0.0.1:${container.getMappedPort(10002)}"
+            "http://${container.host}:${container.getMappedPort(10002)}"
         }
         val blobConnectionString by lazy { "DefaultEndpointsProtocol=http;AccountName=${accountName};AccountKey=${accountKey};BlobEndpoint=${blobUrl}/devstoreaccount1;" }
         val queueConnectionString by lazy { "DefaultEndpointsProtocol=http;AccountName=${accountName};AccountKey=${accountKey};QueueEndpoint=${queueUrl}/devstoreaccount1;" }
