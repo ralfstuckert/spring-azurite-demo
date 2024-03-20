@@ -51,7 +51,7 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.7.0
         if: github.event_name != 'pull_request'
         with:
-          gistID: e2934587aa9a8cc9e0dbc9bcdd730b0d
+          gistID: cc53e6d9bc06aac75c1eb234ff946a97
           auth: ${{ secrets.CREATE_GIST_PAT }}
           filename: badge.json
           label: coverage
