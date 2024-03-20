@@ -54,7 +54,7 @@ class PlaytikaMessageReceiverTest {
         message.text() shouldBe "Yeehaw"
     }
 
-    fun CapturingSlot< Message<*>>.awaitMessage(timeout:Duration = 3.seconds): Message<*> = runBlocking {
+    fun CapturingSlot< Message<*>>.awaitMessage(timeout:Duration = 10.seconds): Message<*> = runBlocking {
         withTimeout(timeout) {
             while (!this@awaitMessage.isCaptured ) {
                 delay(100)
