@@ -22,7 +22,7 @@ abstract class AzuriteTestcontainer() {
             "http://${container.host}:${container.getMappedPort(10000)}"
         }
         val queueUrl by lazy {
-            "http://${container.host}:${container.getMappedPort(10001)}"
+            "http://127.0.0.1:${container.getMappedPort(10001)}"
         }
         val tableUrl by lazy {
             "http://${container.host}:${container.getMappedPort(10002)}"
