@@ -42,14 +42,14 @@ jobs:
         id: coverage
         uses: PavanMudigonda/jacoco-reporter@v4.9
         with:
-          coverage_results_path: ${{ inputs.jacoco-xml-file }}
+          coverage_results_path: build/reports/jacoco/test/jacocoTestReport.xml
           coverage_report_name: Coverage
           coverage_report_title: JaCoCo
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Coverage Badge
         uses: schneegans/dynamic-badges-action@v1.7.0
-        if: github.event_name != 'pull_request' && inputs.jacoco-xml-file != '' 
+        if: github.event_name != 'pull_request'
         with:
           gistID: e2934587aa9a8cc9e0dbc9bcdd730b0d
           auth: ${{ secrets.CREATE_GIST_PAT }}
