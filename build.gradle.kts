@@ -71,10 +71,21 @@ tasks.withType<Test> {
     finalizedBy(tasks.jacocoTestReport)
 }
 
+val jacocoExclude =
+    listOf("**/*Application.kt")
+
 tasks.withType<JacocoReport> {
     reports {
         xml.required.set(true)
         csv.required.set(false)
         html.required.set(false)
     }
+    classDirectories.setFrom(
+        classDirectories.files.map {
+            fileTree(it).matching {
+                exclude(jacocoExclude)
+            }
+        },
+    )
 }
+
