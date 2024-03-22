@@ -36,7 +36,7 @@ abstract class AzuriteTestcontainer()  {
 
         @JvmStatic
         @DynamicPropertySource
-        fun registerPgProperties(registry: DynamicPropertyRegistry) {
+        fun registerAzuriteProperties(registry: DynamicPropertyRegistry) {
             registry.add("demo.storage.table.endpoint") { "${tableUrl}/devstoreaccount1" }
 
             // overwrite endpoints using the testcontainers ports

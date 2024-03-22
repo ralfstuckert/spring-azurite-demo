@@ -25,6 +25,8 @@ class AzureBlobStorageTest : AzuriteTestcontainer() {
 
     @Test
     fun listBlobNames() {
+        storageService.listBlobNames() shouldBe emptyList()
+
         blobContainerClient.getBlobClient("a").upload("aaa".byteInputStream())
         blobContainerClient.getBlobClient("b").upload("bbb".byteInputStream())
         blobContainerClient.getBlobClient("c").upload("ccc".byteInputStream())

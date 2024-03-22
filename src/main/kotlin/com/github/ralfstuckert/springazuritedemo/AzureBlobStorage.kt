@@ -26,7 +26,7 @@ class AzureBlobStorage(val blobServiceClient: BlobServiceClient,
     }
 
 
-    fun listBlobNames() =
+    fun listBlobNames():List<String> =
         blobContainerClient.listBlobs().map { it.name }
 
     fun downloadBlob(blobName: String): ByteArray =

@@ -6,10 +6,7 @@ import org.springframework.boot.ApplicationRunner
 import org.springframework.stereotype.Component
 
 @Component
-class StorageAccessDemo(
-    val blobStorage: AzureBlobStorage,
-    val tableStorage: AzureTableStorage
-) : ApplicationRunner {
+class StorageAccessDemo(val blobStorage: AzureBlobStorage) : ApplicationRunner {
 
     private val logger = LoggerFactory.getLogger(StorageAccessDemo::class.java)
 
