@@ -49,7 +49,7 @@ dependencies {
     testImplementation("com.ninja-squad:springmockk:4.0.2")
 
     testImplementation("org.springframework.cloud:spring-cloud-starter-bootstrap")
-    testImplementation(("com.playtika.testcontainers:embedded-azurite:3.1.5"))
+    testImplementation(("com.playtika.testcontainers:embedded-azurite:3.1.7"))
 }
 
 dependencyManagement {
